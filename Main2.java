@@ -24,7 +24,7 @@ public class Main3 {
             Scanner cs = new Scanner(System.in);
             s = cs.nextInt();
             if(s==2){
-                int z;
+                int z=0;
                 String x="";
 
                 while(n>0){
@@ -48,7 +48,7 @@ public class Main3 {
                 System.out.println(x);
 
             }else if(s==16){
-                int z=0;
+                int z;
                 String x="";
 
                 while(n>0){
