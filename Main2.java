@@ -24,7 +24,7 @@ public class Main3 {
             Scanner cs = new Scanner(System.in);
             s = cs.nextInt();
             if(s==2){
-                int z;
+                int z=0;
                 String x="";
 
                 while(n>0){
