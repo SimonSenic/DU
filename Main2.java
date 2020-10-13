@@ -7,80 +7,71 @@ public class Main3 {
         int n=0;
         int s=0;
         int i=1, j=1;
+
         System.out.println("zadaj cislo: ");
-        do{
+        while(n<1){
             if(i>1 && i!=6) System.out.println("cislo musi byt kladne.. zadaj nove: ");
-            if(i==6){ System.out.println("5x si zadal nespravne cislo pepega.. mam toho dost :P "); System.exit(0); }
+            else if(i==6){ System.out.println("5x si zadal nespravne cislo pepega.. mam toho dost :P "); System.exit(0); }
+            i++;
             Scanner sc = new Scanner(System.in);
             n = sc.nextInt();
-            if(n>0){
-                System.out.println("zadaj sustavu (2, 8, 16): ");
-                do{
-                    if(j>1 && j!=6) System.out.println("musis zadat sustavu 2, 8 alebo 16.. skus to znova: ");
-                    if(j==6) { System.out.println("uz 5x si zadal nespravnu sustavu "); System.exit(0); }
-                    Scanner cs = new Scanner(System.in);
-                    s = cs.nextInt();
-                    if(s==2){
-                        long z=10;
-                        long z2=0;
+        }
 
-                        while(n>1){
-                            z=z+(n%2);
-                            z*=10;
-                            n/=2;
-                        }
-                        z+=1;
+        System.out.println("zadaj sustavu (2, 8, 16): ");
+        do{
+            if(j>1 && j!=6) System.out.println("musis zadat sustavu 2, 8 alebo 16.. skus to znova: ");
+            if(j==6) { System.out.println("uz 5x si zadal nespravnu sustavu.. kaslem na to "); System.exit(0); }
+            Scanner cs = new Scanner(System.in);
+            s = cs.nextInt();
+            if(s==2){
+                int z;
+                String x="";
 
-                        while(z>0)
-                        {
-                            z2=z2+z%10;
-                            z=z/10;
-                            z2=z2*10;
-                        }
-                        z2=z2/100;
+                while(n>0){
+                    z=n%2;
+                    x=z+x;
+                    n/=2;
+                }
 
-                        System.out.println(z2);
+                System.out.println(x);
 
-                    }else if(s==8){
-                        long z=10;
-                        long z2=0;
+            }else if(s==8){
+                int z;
+                String x="";
 
-                        while(n>1){
-                            z=z+(n%8);
-                            z*=10;
-                            n/=8;
-                        }
-                        z+=n;
+                while(n>0){
+                    z=n%8;
+                    x=z+x;
+                    n/=8;
+                }
 
-                        while(z>0)
-                        {
-                            z2=z2+z%10;
-                            z=z/10;
-                            z2=z2*10;
-                        }
-                        z2=z2/100;
+                System.out.println(x);
 
-                        System.out.println(z2); System.exit(0);
+            }else if(s==16){
+                int z=0;
+                String x="";
 
-                    }else if(s==16){
-                        int z;
-                        String x="";
-                        char hex[] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+                while(n>0){
+                    z=n%16;
 
-                        while(n>0){
-                            z=n%16;
-                            x=hex[z]+x;
-                            n/=16;
-                        }
-
-                        System.out.println(x); System.exit(0);
-
+                    switch(z){
+                        case 10: x="A"+x; break;
+                        case 11: x="B"+x; break;
+                        case 12: x="C"+x; break;
+                        case 13: x="D"+x; break;
+                        case 14: x="E"+x; break;
+                        case 15: x="F"+x; break;
+                        default: x=z+x;;
                     }
-                    j++;
-                }while(s!=2 && s!=8 && s!=16);
+                    n/=16;
+                }
+
+                System.out.println(x);
+
             }
-            i++;
-        }while(n<1);
+            j++;
+
+        }while(s!=2 && s!=8 && s!=16);
 
     }
 }
