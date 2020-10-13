@@ -48,7 +48,7 @@ public class Main3 {
                 System.out.println(x);
 
             }else if(s==16){
-                int z=0;
+                int z;
                 String x="";
 
                 while(n>0){
