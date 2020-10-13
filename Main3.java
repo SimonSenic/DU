@@ -32,13 +32,13 @@ public class Main5 {
             }
             System.out.println(result);
 
-        }else if(s==16){
+        }/*else if(s==16){
             while(number>0) {
                 result+=(number%10)*(int)Math.pow(16, i);
                 number/=10;
                 i++;
             }
-            System.out.println(result);
+            System.out.println(result); */
 
         }else System.out.println("error");
 
