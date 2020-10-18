@@ -22,6 +22,16 @@ public class MainClass {
         rn.guessNumber(3); System.out.println();
         rn.computeResult(10);
 
+        System.out.println();
+
+        Fractions fr = new Fractions();
+        fr.commonDivisor(100,62); System.out.println();
+        System.out.println(fr.countBounces(162, 0.9)); System.out.println();
+        fr.delChar("KEKW"); System.out.println();
+        fr.divNumber("8X75Y2"); System.out.println();
+        //fr.sumFractions(100);
+
+
 
     }
 }
