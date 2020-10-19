@@ -65,6 +65,25 @@ public class Fractions {
         }while(number%91!=0);
     }
 
+    public double sumFractions(int max){ //Homework 3
+        double result=0;
+        for(int i=1; i<=max; i++)
+            result=result+(double)1/i;
 
+        return result;
+
+    }
+
+    public int[] doNotRepeatNumber(int[] keno){ //Bonus
+        int length = keno.length;
+        int[] check = keno;
+        for(int i=0; i<length; i++){
+            keno[i]=(int)(Math.random()*20+1);
+            for(int j=0; j<i; j++)
+                while(keno[i] == check[j]) keno[i]=(int)(Math.random()*20+1);
+        }
+        return keno;
+
+    }
 
 }

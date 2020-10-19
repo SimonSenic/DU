@@ -12,8 +12,8 @@ public class MainClass {
         EvenNumber en = new EvenNumber();
         int[] array = new int[] { 1, 2, 3, 4, 8, 11, 15, 12, 13, 17, 23, 19 };
         int[] array2 = en.evenNumberArray(array);
-        int length2 = array2.length;
-        for(int a=0; a<length2; a++)
+        int lengthOfArray2 = array2.length;
+        for(int a=0; a<lengthOfArray2; a++)
             System.out.print(array2[a] +" ");
 
         System.out.println();
@@ -29,8 +29,14 @@ public class MainClass {
         System.out.println(fr.countBounces(162, 0.9)); System.out.println();
         fr.delChar("KEKW"); System.out.println();
         fr.divNumber("8X75Y2"); System.out.println();
-        //fr.sumFractions(100);
+        System.out.println(fr.sumFractions(100)); System.out.println();
+        int[] keno = new int[20];
+        int[] keno2 = fr.doNotRepeatNumber(keno);
+        int lengthOfKeno2 = keno2.length;
+        for(int a=0; a<lengthOfKeno2; a++)
+            System.out.print(keno[a] +" ");
 
+        System.out.println();
 
 
     }
