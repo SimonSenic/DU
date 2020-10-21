@@ -26,19 +26,44 @@ public class Lottery {
 
     public void enterNumbers(){
         int i=0, a;
-        Scanner sc = new Scanner(System.in);
-        while(i<tip.length){
-            System.out.print("Enter " +(i+1) +". number: ");
-            a = sc.nextInt();
-            if(a>0 && a<21 && checkNumbers(i, a)){
-                tip[i]=a;
-                i++;
-            }else System.out.println("Wrong number.. try again a different one. ");
+        char form;
 
-        }
-        System.out.println("Your Tip: ");
-        for(i=0; i<tip.length; i++) System.out.print(tip[i] +" ");
-        System.out.println();
+        do{
+            System.out.println("Do you want to auto-generate numbers for your tip? (y/n)");
+            Scanner yn = new Scanner(System.in);
+            form = yn.next().charAt(0);
+            if(form == 'y'){
+                while(i<tip.length){
+                    a=(int)(Math.random()*20+1);
+                    if(checkNumbers(i, a)){
+                        tip[i]=a;
+                        i++;
+                    }
+
+                }
+                System.out.println("Your Tip: ");
+                for(i=0; i<tip.length; i++) System.out.print(tip[i] +" ");
+                System.out.println();
+            }
+            else if(form=='n'){
+                while(i<tip.length){
+                    System.out.print("Enter " +(i+1) +". number: ");
+                    Scanner sc = new Scanner(System.in);
+                    a = sc.nextInt();
+                    if(a>0 && a<21 && checkNumbers(i, a)){
+                        tip[i] = a;
+                        i++;
+                    }else System.out.println("Wrong number.. try again a different one. ");
+
+                }
+                System.out.println("Your Tip: ");
+                for(i=0; i<tip.length; i++) System.out.print(tip[i] +" ");
+                System.out.println();
+            }
+            else System.out.println("Invalid answer.. try again. ");
+
+        }while(form!='y' && form!='n');
+
     }
 
     public void drawNumbers(){
