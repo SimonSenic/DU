@@ -18,7 +18,7 @@ public class TicTacToeX {
             int row=(a-1)/arr.length;
             int column=(a-1)%arr.length;
             if(arr[row][column]!=0) { System.out.println("Tile is occupied.. try again. "); continue; }
-            arr[row][column]=player; checkResults(arr);
+            arr[row][column]=player; checkResults(arr, player);
 
             if(player==1 || player==2) player++;
             else player=1;
@@ -37,28 +37,44 @@ public class TicTacToeX {
         System.out.println();
     }
 
-    public static void checkResults(int[][] arr){
+    public static void checkResults(int[][] arr, int player){
         int l=4;
 
         for(int i=0; i<arr.length; i++){ //In row
             int j=0, count=0;
-            while(j<arr[0].length) { if(arr[i][j]==1) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 1 won! "); System.exit(0); } j++; } j=0; count=0;
-            while(j<arr[0].length) { if(arr[i][j]==2) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 2 won! "); System.exit(0); } j++; } j=0; count=0;
-            while(j<arr[0].length) { if(arr[i][j]==3) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 3 won! "); System.exit(0); } j++; }
+            while(j<arr[0].length){
+                if(arr[i][j]==player) count++;
+                else count=0;
+                if(count==l) { showGameStatus(arr); System.out.println("Player " +player +" won! "); System.exit(0); }
+                j++;
+            }
         }
 
         for(int j=0; j<arr[0].length; j++){ //In column
             int i=0, count=0;
-            while(i<arr.length) { if(arr[i][j]==1) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 1 won! "); System.exit(0); } i++; } i=0; count=0;
-            while(i<arr.length) { if(arr[i][j]==2) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 2 won! "); System.exit(0); } i++; } i=0; count=0;
-            while(i<arr.length) { if(arr[i][j]==3) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 3 won! "); System.exit(0); } i++; }
+            while(i<arr.length){
+                if(arr[i][j]==player) count++;
+                else count=0;
+                if(count==l) { showGameStatus(arr); System.out.println("Player " +player +" won! "); System.exit(0); }
+                i++;
+            }
         }
 
-        for(int i=0; i<arr.length; i++){ //In diagonal
-            int j=0, count=0;
-            while(j<arr.length) { if(arr[j][j]==1) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 1 won! "); System.exit(0); } j++; } j=0; count=0;
-            while(j<arr.length) { if(arr[j][j]==2) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 2 won! "); System.exit(0); } j++; } j=0; count=0;
-            while(j<arr.length) { if(arr[j][j]==3) count++; else count=0; if(count==l) { showGameStatus(arr); System.out.println("Player 3 won! "); System.exit(0); } j++; }
+        int j=0, count=0; //In diagonal
+        while(j<arr.length){
+            if(arr[j][j]==player) count++;
+            else count=0;
+            if(count==l) { showGameStatus(arr); System.out.println("Player " +player +" won! "); System.exit(0); }
+            j++;
+        }
+
+        int i=0;
+        j=arr[0].length-1; count=0; //In reversed diagonal
+        while(j>=0){
+            if(arr[i][j]==player) count++;
+            else count=0;
+            if(count==l) { showGameStatus(arr); System.out.println("Player " +player +" won! "); System.exit(0); }
+            i++; j--;
         }
 
     }
